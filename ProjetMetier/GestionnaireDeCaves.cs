@@ -37,7 +37,13 @@ namespace ProjetMetier
         public int NbBouteillesDeRouges(string unNomDeCave)
         {
             // A vous de jouer
-            return 0;
+            int nbBouteilleRouge = 0;
+
+            foreach(Bouteille bout in lesCaves[unNomDeCave])
+            {
+                nbBouteilleRouge = nbBouteilleRouge + 1;
+            }
+            return nbBouteilleRouge;
         }
 
         public double ValeurDeLaCave(string unNomDeCave)
