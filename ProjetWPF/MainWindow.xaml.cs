@@ -32,15 +32,15 @@ namespace ProjetWPF
             // A vous de jouer
             gst = new GestionnaireDeCaves();
             //liste
-            List<Bouteille> bouteilleSIO = new List<Bouteille>();
-            List<Bouteille> bouteilleSIO1 = new List<Bouteille>();
-            List<Bouteille> bouteilleSIO2 = new List<Bouteille>();
+            List<Bouteille> bouteille1 = new List<Bouteille>();
+            List<Bouteille> bouteille2 = new List<Bouteille>();
+            List<Bouteille> bouteille3 = new List<Bouteille>();
 
-            gst.AjouterCave("Cave SIO", bouteilleSIO);
-            gst.AjouterCave("Cave SIO1", bouteilleSIO1);
-            gst.AjouterCave("Cave SIO2", bouteilleSIO2);
+            gst.AjouterCave("Cave SIO", bouteille1);
+            gst.AjouterCave("Cave SIO1", bouteille2);
+            gst.AjouterCave("Cave SIO2", bouteille3);
             
-            
+            //utilisation du jeu d'essai
             // Les couleurs du vin
             Couleur blanc = new Couleur("Blanc");
             Couleur rose = new Couleur("Rosé");
@@ -97,43 +97,47 @@ namespace ProjetWPF
             Bouteille b19 = new Bouteille(19, 37, vin19);
             Bouteille b20 = new Bouteille(20, 92, vin20);
 
-            bouteilleSIO.Add(b1); 
-            bouteilleSIO.Add(b2); 
-            bouteilleSIO.Add(b3); 
-            bouteilleSIO.Add(b4); 
-            bouteilleSIO.Add(b5); 
-            bouteilleSIO.Add(b6);
+            bouteille1.Add(b1);
+            bouteille1.Add(b2);
+            bouteille1.Add(b3);
+            bouteille1.Add(b4);
+            bouteille1.Add(b5);
+            bouteille1.Add(b6);
 
-            bouteilleSIO1.Add(b8); 
-            bouteilleSIO1.Add(b7); 
-            bouteilleSIO1.Add(b9); 
-            bouteilleSIO1.Add(b20); 
-            bouteilleSIO1.Add(b18); 
-            bouteilleSIO1.Add(b15);
+            bouteille2.Add(b8);
+            bouteille2.Add(b7);
+            bouteille2.Add(b9);
+            bouteille2.Add(b20);
+            bouteille2.Add(b18);
+            bouteille2.Add(b15);
 
-            bouteilleSIO2.Add(b13); 
-            bouteilleSIO2.Add(b16); 
-            bouteilleSIO2.Add(b5); 
-            bouteilleSIO2.Add(b9); 
-            bouteilleSIO2.Add(b19);
+            bouteille3.Add(b13);
+            bouteille3.Add(b16);
+            bouteille3.Add(b5);
+            bouteille3.Add(b9);
+            bouteille3.Add(b19);
         }
 
         private void lvCaves_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             // A vous de jouer
+            // condition
             if(lvCaves.SelectedItem != null)
             {
                 lvBouteilles.ItemsSource = gst.LesCaves[lvCaves.SelectedItem as string];
+                txtNbBouteilles.Text = gst.NbBouteilles(lvCaves.SelectedItem as string).ToString();
+                txtNbBouteillesDeRouges.Text = gst.NbBouteillesDeRouges(lvCaves.SelectedItem as string).ToString();
+                txtValeurDeLaCave.Text = gst.ValeurDeLaCave(lvCaves.SelectedItem as string).ToString();
             }
         }
 
         private void lvBouteilles_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             // A vous de jouer
-            //idem
+            
             if(lvBouteilles.SelectedItem != null)
             {
-                txtMillesime = 
+
             }
         }
     }

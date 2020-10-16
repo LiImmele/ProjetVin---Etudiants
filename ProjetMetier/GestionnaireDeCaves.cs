@@ -24,7 +24,9 @@ namespace ProjetMetier
         public int NbBouteilles(string unNomDeCave)
         {
             // A vous de jouer
+            // on déclare la variable
             int nbBouteille = 0;
+
             foreach(Bouteille bout in lesCaves[unNomDeCave])
             {
                 nbBouteille = nbBouteille + 1;
